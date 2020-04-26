@@ -15,10 +15,9 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 // ============================
 let urlDB;
 
- if (process.env.NODE_ENV === 'dev') {
-     urlDB = 'mongodb://localhost:27017/cafe';
- } else {
-    urlDB = 'mongodb://quest:2aqoPEhICOfraDUt@cluster0-shard-00-02-ca5mc.mongodb.net:27017/cafe?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority';
+if (process.env.NODE_ENV === 'dev') {
+    urlDB = 'mongodb://localhost:27017/cafe';
+} else {
+    urlDB = process.env.MONGO_URI;
 }
 process.env.URLDB = urlDB;
-
